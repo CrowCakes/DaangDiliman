@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Daang Diliman</string>
+
+    <string name="hello_world">Hello World! Click the button!</string>
+    <string name="button">Click</string>
+    <string name="second_page">This is the second page.</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="building">Please select the building you want to navigate:</string>
+    <string name="room">Please select the room you want to find:</string>
+    <string name="route_info">Available routes to your destination will appear below!\nPlease click on them to see their paths.</string>
+
+    <string-array name="build_array">
+        <item>Palma Hall (PH)</item>
+        <item>Melchor Hall (MH)</item>
+        <item>Alumni Engineers Centennial Hall (AECH)</item>
+    </string-array>
+
+    <string-array name="room_array">
+        <item>201</item>
+        <item>202</item>
+        <item>203</item>
+        <item>204</item>
+        <item>205</item>
+    </string-array>
+</resources>
