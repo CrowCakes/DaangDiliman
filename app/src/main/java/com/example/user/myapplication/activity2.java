@@ -27,7 +27,7 @@ public class activity2 extends AppCompatActivity {
         });
     }
     private void goToFirstPage() {
-        Intent intent2 = new Intent(this, MainActivity.class);
+        Intent intent2 = new Intent(this, activity1.class);
         startActivity(intent2);
         overridePendingTransition(0, 0);
     }
