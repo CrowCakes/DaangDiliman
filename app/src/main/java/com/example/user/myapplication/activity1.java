@@ -1,12 +1,8 @@
-/**
- * Created by user on 12/4/2017.
- */
-
 package com.example.user.myapplication;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.content.Context;
+//import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,16 +35,16 @@ public class activity1 extends AppCompatActivity implements AdapterView.OnItemSe
         spinner.setOnItemSelectedListener(this);
         spnner.setOnItemSelectedListener(this);
 
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button button3 = (Button) findViewById(R.id.button);
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToSecondPage();
             }
         });
 
-        Button button2 = (Button) findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button button4 = (Button) findViewById(R.id.button2);
+        button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToMainPage();
@@ -85,7 +81,7 @@ public class activity1 extends AppCompatActivity implements AdapterView.OnItemSe
 
 
         Intent intent = new Intent(this, activity2.class);
-        intent.putExtra("EXTRA_SELECTED_DEST", (txtBSP.concat(" ".concat(txtRSP))).concat(", ".concat(button_name)) );
+        intent.putExtra("EXTRA_SELECTED_DEST", (txtBSP.concat(" ".concat(txtRSP))));
         startActivity(intent);
         overridePendingTransition(0, 0);
     }

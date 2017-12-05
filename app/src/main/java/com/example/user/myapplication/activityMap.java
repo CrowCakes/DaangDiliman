@@ -6,18 +6,24 @@ package com.example.user.myapplication;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.infowindow.InfoWindow;
 
 public class activityMap extends AppCompatActivity {
 
@@ -25,6 +31,9 @@ public class activityMap extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activitymap);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         Context ctx = getApplicationContext();
         //important! set your user agent to prevent getting banned from the osm servers
@@ -40,9 +49,44 @@ public class activityMap extends AppCompatActivity {
 
         //map's center
         IMapController mapController = map.getController();
-        mapController.setZoom(9);
+        mapController.setZoom(17);
         GeoPoint startPoint = new GeoPoint(14.6535,121.0674);
         mapController.setCenter(startPoint);
+
+        //info window
+        InfoWindow infoWindow = new InfoWindow(R.layout.bonuspack_bubble, map) {
+            @Override
+            public void onOpen(Object item) {
+                LinearLayout layout = (LinearLayout) mView.findViewById(R.id.bubble_layout);
+                TextView txtTitle = (TextView) mView.findViewById(R.id.bubble_title);
+                TextView txtDescription = (TextView) mView.findViewById(R.id.bubble_description);
+                Button btnMoreInfo = (Button) mView.findViewById(R.id.bubble_moreinfo);
+                TextView txtSubdescription = (TextView) mView.findViewById(R.id.bubble_subdescription);
+
+                txtTitle.setText("Palma Hall (PH)");
+                txtDescription.setText("Not accessible");
+                txtSubdescription.setText("Accessible entrance found at the back of building");
+                layout.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        // Override Marker's onClick behaviour here
+                        goToPHPage();
+                    }
+                });
+                /*
+                btnMoreInfo.setVisibility(Button.VISIBLE);
+                btnMoreInfo.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        // Implement onClick behaviour
+                            goToPHPage();
+                    }
+                });*/
+            }
+
+            @Override
+            public void onClose() {
+
+            }
+        };
 
         //Palma Hall
         Marker PalmaHall = new Marker(map);
@@ -50,7 +94,9 @@ public class activityMap extends AppCompatActivity {
         PalmaHall.setPosition(PHPoint);
         PalmaHall.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         map.getOverlays().add(PalmaHall);
-        PalmaHall.setTitle("Palma Hall");
+        PalmaHall.setInfoWindow(infoWindow);
+
+        map.invalidate();
 
         //back button
         Button button = (Button) findViewById(R.id.button);
@@ -64,6 +110,12 @@ public class activityMap extends AppCompatActivity {
 
     private void goToMainPage() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(0, 0);
+    }
+
+    private void goToPHPage() {
+        Intent intent = new Intent(this, activityMoreInfo.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }

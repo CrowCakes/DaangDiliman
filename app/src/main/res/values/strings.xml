@@ -10,6 +10,8 @@
     <string name="room">Please select the room you want to find:</string>
     <string name="route_info">Available routes to your destination will appear below!\nPlease click on them to see their paths.</string>
 
+
+
     <string-array name="build_array">
         <item>Palma Hall (PH)</item>
         <item>Melchor Hall (MH)</item>
