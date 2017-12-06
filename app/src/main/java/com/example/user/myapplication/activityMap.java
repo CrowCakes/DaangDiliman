@@ -64,6 +64,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
             public void onOpen(Object item) {
                 MapView map = (MapView) findViewById(R.id.map);
                 InfoWindow.closeAllInfoWindowsOn(map);
+                
                 LinearLayout layout = (LinearLayout) mView.findViewById(R.id.bubble_layout);
                 TextView txtTitle = (TextView) mView.findViewById(R.id.bubble_title);
                 TextView txtDescription = (TextView) mView.findViewById(R.id.bubble_description);
