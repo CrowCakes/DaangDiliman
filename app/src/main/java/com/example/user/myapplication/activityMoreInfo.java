@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +23,22 @@ public class activityMoreInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activitymaininfo);
 
-        details.add("Main entrance has no ramps");
-        details.add("Accessible entrances are on the west wing and at Pavilion 1");
-        details.add("There are no elevators or ramps between floors");
-        details.add("The west and east wings of each floor are elevated");
+        String bldg = getIntent().getStringExtra("EXTRA_SELECTED_DEST");
+
+        switch (bldg) {
+            case "PH":
+                details.add("Main entrance has no ramps");
+                details.add("Accessible entrances are on the west wing and at Pavilion 1");
+                details.add("There are no elevators or ramps between floors");
+                details.add("The west and east wings of each floor are elevated");
+                break;
+            case "MH":
+                details.add("Main entrance has no ramps");
+                details.add("Accessible entrances are on the west wing and in the parking lot at the back");
+                details.add("The west and east wings of each floor are elevated");
+                details.add("There is an elevator that serves each floor, but can only be used with staff permission");
+                break;
+        }
 
         ListView mainListView = (ListView) findViewById( R.id.listview );
         ArrayAdapter adapter = new ArrayAdapter<String>(this,

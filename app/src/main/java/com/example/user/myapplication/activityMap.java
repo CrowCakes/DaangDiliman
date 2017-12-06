@@ -19,13 +19,15 @@ import android.widget.TextView;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
+import org.osmdroid.events.MapEventsReceiver;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.infowindow.InfoWindow;
 
-public class activityMap extends AppCompatActivity {
+public class activityMap extends AppCompatActivity implements MapEventsReceiver{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class activityMap extends AppCompatActivity {
         MapView map = (MapView) findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
 
-        map.setBuiltInZoomControls(true);
+        //map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
 
         //map's center
@@ -53,23 +55,26 @@ public class activityMap extends AppCompatActivity {
         GeoPoint startPoint = new GeoPoint(14.6535,121.0674);
         mapController.setCenter(startPoint);
 
+        MapEventsOverlay mapEventsOverlay = new MapEventsOverlay(ctx, this);
+        map.getOverlays().add(0, mapEventsOverlay);
+
         //info window
         InfoWindow infoWindow = new InfoWindow(R.layout.bonuspack_bubble, map) {
             @Override
             public void onOpen(Object item) {
+                MapView map = (MapView) findViewById(R.id.map);
+                InfoWindow.closeAllInfoWindowsOn(map);
                 LinearLayout layout = (LinearLayout) mView.findViewById(R.id.bubble_layout);
                 TextView txtTitle = (TextView) mView.findViewById(R.id.bubble_title);
                 TextView txtDescription = (TextView) mView.findViewById(R.id.bubble_description);
-                Button btnMoreInfo = (Button) mView.findViewById(R.id.bubble_moreinfo);
-                TextView txtSubdescription = (TextView) mView.findViewById(R.id.bubble_subdescription);
+                //Button btnMoreInfo = (Button) mView.findViewById(R.id.bubble_moreinfo);
 
                 txtTitle.setText("Palma Hall (PH)");
                 txtDescription.setText("Not accessible");
-                txtSubdescription.setText("Accessible entrance found at the back of building");
                 layout.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         // Override Marker's onClick behaviour here
-                        goToPHPage();
+                        goToPHPage("PH");
                     }
                 });
                 /*
@@ -88,6 +93,43 @@ public class activityMap extends AppCompatActivity {
             }
         };
 
+        //info window
+        InfoWindow MHWindow = new InfoWindow(R.layout.bonuspack_bubble, map) {
+            @Override
+            public void onOpen(Object item) {
+                MapView map = (MapView) findViewById(R.id.map);
+                InfoWindow.closeAllInfoWindowsOn(map);
+
+                LinearLayout layout = (LinearLayout) mView.findViewById(R.id.bubble_layout);
+                TextView txtTitle = (TextView) mView.findViewById(R.id.bubble_title);
+                TextView txtDescription = (TextView) mView.findViewById(R.id.bubble_description);
+                //Button btnMoreInfo = (Button) mView.findViewById(R.id.bubble_moreinfo);
+                //TextView txtSubdescription = (TextView) mView.findViewById(R.id.bubble_subdescription);
+
+                txtTitle.setText("Melchor Hall (MH)");
+                txtDescription.setText("Accessible");
+                layout.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        // Override Marker's onClick behaviour here
+                        goToPHPage("MH");
+                    }
+                });
+
+                //btnMoreInfo.setVisibility(Button.VISIBLE);
+                //btnMoreInfo.setOnClickListener(new View.OnClickListener() {
+                //    public void onClick(View v) {
+                //        // Implement onClick behaviour
+                //            goToPHPage();
+                //    }
+                //});
+            }
+
+            @Override
+            public void onClose() {
+
+            }
+        };
+
         //Palma Hall
         Marker PalmaHall = new Marker(map);
         GeoPoint PHPoint = new GeoPoint(14.65349,121.06970);
@@ -95,6 +137,14 @@ public class activityMap extends AppCompatActivity {
         PalmaHall.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         map.getOverlays().add(PalmaHall);
         PalmaHall.setInfoWindow(infoWindow);
+
+        //Melchor Hall
+        Marker MelchorHall = new Marker(map);
+        GeoPoint MHPoint = new GeoPoint(14.65648,121.06966);
+        MelchorHall.setPosition(MHPoint);
+        MelchorHall.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        map.getOverlays().add(MelchorHall);
+        MelchorHall.setInfoWindow(MHWindow);
 
         map.invalidate();
 
@@ -108,14 +158,28 @@ public class activityMap extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean singleTapConfirmedHelper(GeoPoint p) {
+        MapView map = (MapView) findViewById(R.id.map);
+        InfoWindow.closeAllInfoWindowsOn(map);
+        return true;
+    }
+
+    @Override public boolean longPressHelper(GeoPoint p) {
+        //DO NOTHING FOR NOW:
+        return false;
+    }
+
     private void goToMainPage() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
 
-    private void goToPHPage() {
+    //argument bldg stands for which bldg called this function
+    private void goToPHPage(String bldg) {
         Intent intent = new Intent(this, activityMoreInfo.class);
+        intent.putExtra("EXTRA_SELECTED_DEST", bldg);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
