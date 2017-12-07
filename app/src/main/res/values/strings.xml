@@ -11,7 +11,6 @@
     <string name="route_info">Available routes to your destination will appear below!\nPlease click on them to see their paths.</string>
 
 
-
     <string-array name="build_array">
         <item>Palma Hall (PH)</item>
         <item>Melchor Hall (MH)</item>
@@ -25,4 +24,5 @@
         <item>204</item>
         <item>205</item>
     </string-array>
+    <string name="title_activity_entrance">entrance</string>
 </resources>

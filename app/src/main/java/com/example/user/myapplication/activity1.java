@@ -68,6 +68,7 @@ public class activity1 extends AppCompatActivity implements AdapterView.OnItemSe
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
+        finish();
     }
 
     private void goToSecondPage() {
@@ -84,6 +85,7 @@ public class activity1 extends AppCompatActivity implements AdapterView.OnItemSe
         intent.putExtra("EXTRA_SELECTED_DEST", (txtBSP.concat(" ".concat(txtRSP))));
         startActivity(intent);
         overridePendingTransition(0, 0);
+        finish();
     }
     // For the route selection
     public void onItemSelected(AdapterView<?> parent, View view,

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 goToMap();
+                finish();
             }
         });
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 goToWayfinding();
+                finish();
             }
         });
     }
@@ -35,11 +37,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, activity1.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
+        finish();
     }
 
     private void goToMap() {
         Intent intentM = new Intent(this, activityMap.class);
         startActivity(intentM);
         overridePendingTransition(0, 0);
+        finish();
     }
 }

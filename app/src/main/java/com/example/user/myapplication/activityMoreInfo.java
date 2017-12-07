@@ -1,5 +1,6 @@
 package com.example.user.myapplication;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 //import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,14 +29,20 @@ public class activityMoreInfo extends AppCompatActivity {
 
         switch (bldg) {
             case "PH":
+                details.add("BUILDING ENTRANCE FEATURES");
                 details.add("Main entrance has no ramps");
                 details.add("Accessible entrances are on the west wing and at Pavilion 1");
+                details.add("");
+                details.add("BUILDING FEATURES");
                 details.add("There are no elevators or ramps between floors");
                 details.add("The west and east wings of each floor are elevated");
                 break;
             case "MH":
+                details.add("BUILDING ENTRANCE FEATURES");
                 details.add("Main entrance has no ramps");
                 details.add("Accessible entrances are on the west wing and in the parking lot at the back");
+                details.add("");
+                details.add("BUILDING FEATURES");
                 details.add("The west and east wings of each floor are elevated");
                 details.add("There is an elevator that serves each floor, but can only be used with staff permission");
                 break;
@@ -50,12 +58,31 @@ public class activityMoreInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 goToFirstPage();
+                finish();
+            }
+        });
+
+        Button pics = (Button) findViewById(R.id.pics);
+        pics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //String s = getIntent().getStringExtra("EXTRA_SELECTED_DEST");
+                goToImages();
             }
         });
     }
     private void goToFirstPage() {
         Intent intent2 = new Intent(this, activityMap.class);
         startActivity(intent2);
+        overridePendingTransition(0, 0);
+        finish();
+    }
+
+    private void goToImages() {
+        String s = getIntent().getStringExtra("EXTRA_SELECTED_DEST");
+        Intent intent3 = new Intent(this, entrance.class);
+        intent3.putExtra("EXTRA_SELECTED_DEST", s);
+        startActivity(intent3);
         overridePendingTransition(0, 0);
     }
 }

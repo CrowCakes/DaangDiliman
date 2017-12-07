@@ -11,6 +11,9 @@ import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
@@ -62,6 +65,12 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         InfoWindow infoWindow = new InfoWindow(R.layout.bonuspack_bubble, map) {
             @Override
             public void onOpen(Object item) {
+                SpannableStringBuilder builder = new SpannableStringBuilder();
+                String sample = "Accessibility rating: -1.351539961";
+                SpannableString rating = new SpannableString(sample);
+                rating.setSpan(new ForegroundColorSpan(Color.RED), 22, sample.length(), 0);
+                builder.append(rating);
+
                 MapView map = (MapView) findViewById(R.id.map);
                 InfoWindow.closeAllInfoWindowsOn(map);
                 
@@ -71,7 +80,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
                 //Button btnMoreInfo = (Button) mView.findViewById(R.id.bubble_moreinfo);
 
                 txtTitle.setText("Palma Hall (PH)");
-                txtDescription.setText("Not accessible");
+                txtDescription.setText(builder, TextView.BufferType.SPANNABLE);
                 layout.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         // Override Marker's onClick behaviour here
@@ -98,6 +107,12 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         InfoWindow MHWindow = new InfoWindow(R.layout.bonuspack_bubble, map) {
             @Override
             public void onOpen(Object item) {
+                SpannableStringBuilder builder = new SpannableStringBuilder();
+                String sample = "Accessibility rating: 0.721317145";
+                SpannableString rating = new SpannableString(sample);
+                rating.setSpan(new ForegroundColorSpan(Color.BLUE), 22, sample.length(), 0);
+                builder.append(rating);
+
                 MapView map = (MapView) findViewById(R.id.map);
                 InfoWindow.closeAllInfoWindowsOn(map);
 
@@ -108,7 +123,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
                 //TextView txtSubdescription = (TextView) mView.findViewById(R.id.bubble_subdescription);
 
                 txtTitle.setText("Melchor Hall (MH)");
-                txtDescription.setText("Accessible");
+                txtDescription.setText(builder, TextView.BufferType.SPANNABLE);
                 layout.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         // Override Marker's onClick behaviour here
@@ -155,6 +170,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
             @Override
             public void onClick(View v) {
                 goToMainPage();
+                finish();
             }
         });
     }
@@ -175,6 +191,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
+        finish();
     }
 
     //argument bldg stands for which bldg called this function
@@ -183,6 +200,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         intent.putExtra("EXTRA_SELECTED_DEST", bldg);
         startActivity(intent);
         overridePendingTransition(0, 0);
+        finish();
     }
 
     public void onResume(){
@@ -192,12 +210,6 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //Configuration.getInstance().save(this, prefs);
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
-    }
-
-    private void goToFirstPage() {
-        Intent intent2 = new Intent(this, MainActivity.class);
-        startActivity(intent2);
-        overridePendingTransition(0, 0);
     }
 }
 
