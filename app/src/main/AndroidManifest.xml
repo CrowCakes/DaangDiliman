@@ -30,7 +30,8 @@
         <activity
             android:name=".entrance"
             android:label="@string/title_activity_entrance"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activityEntrancePicture"></activity>
     </application>
 
 </manifest>

@@ -46,6 +46,100 @@ public class activityMoreInfo extends AppCompatActivity {
                 details.add("The west and east wings of each floor are elevated");
                 details.add("There is an elevator that serves each floor, but can only be used with staff permission");
                 break;
+            case "CHK":
+
+                break;
+            case "Arki":
+
+                break;
+            case "CAL":
+
+                break;
+            case "Edu":
+
+                break;
+            case "Law":
+
+                break;
+            case "MC":
+
+                break;
+            case "Music":
+
+                break;
+            case "CSL":
+
+                break;
+            case "CSWCD":
+
+                break;
+            case "CE":
+
+                break;
+            case "DCS":
+
+                 break;
+
+            case "Mine":
+
+                break;
+            case "Psych":
+
+                break;
+            case "FA":
+
+                break;
+            case "HE":
+
+                break;
+            case "Bio":
+
+                break;
+            case "Chem":
+
+                break;
+            case "Civil":
+
+                break;
+            case "EEE":
+
+                break;
+            case "Math":
+
+                break;
+            case "LawC":
+
+                break;
+            case "Lib":
+
+                break;
+            case "NCPAG":
+
+                break;
+            case "Geol":
+
+                break;
+            case "NIMBB":
+
+                break;
+            case "NIP":
+
+                break;
+            case "Econ":
+
+                break;
+            case "Stat":
+
+                break;
+            case "SURP":
+
+                break;
+            case "V":
+
+                break;
+            case "BA":
+
+                break;
         }
 
         ListView mainListView = (ListView) findViewById( R.id.listview );
@@ -61,7 +155,7 @@ public class activityMoreInfo extends AppCompatActivity {
                 finish();
             }
         });
-
+        /*
         Button pics = (Button) findViewById(R.id.pics);
         pics.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +164,7 @@ public class activityMoreInfo extends AppCompatActivity {
                 goToImages();
             }
         });
+        */
     }
     private void goToFirstPage() {
         Intent intent2 = new Intent(this, activityMap.class);
@@ -77,7 +172,7 @@ public class activityMoreInfo extends AppCompatActivity {
         overridePendingTransition(0, 0);
         finish();
     }
-
+    /*
     private void goToImages() {
         String s = getIntent().getStringExtra("EXTRA_SELECTED_DEST");
         Intent intent3 = new Intent(this, entrance.class);
@@ -85,4 +180,5 @@ public class activityMoreInfo extends AppCompatActivity {
         startActivity(intent3);
         overridePendingTransition(0, 0);
     }
+    */
 }
