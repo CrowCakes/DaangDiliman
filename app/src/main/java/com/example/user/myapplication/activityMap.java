@@ -1923,7 +1923,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint PH1Point = new GeoPoint(14.6535081,121.0688995);
         PH1.setPosition(PH1Point);
         PH1.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        PH1.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        PH1.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(PH1);
         PH1.setInfoWindow(PH1Window);
         //Pav1
@@ -1931,7 +1931,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint PH2Point = new GeoPoint(14.6525877,121.0688380);
         PH2.setPosition(PH2Point);
         PH2.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        PH2.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        PH2.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(PH2);
         PH2.setInfoWindow(PH2Window);
         //Pav4
@@ -1939,7 +1939,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint PH3Point = new GeoPoint(14.6531707,121.0705906);
         PH3.setPosition(PH3Point);
         PH3.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        PH3.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        PH3.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(PH3);
         PH3.setInfoWindow(PH3Window);
 
@@ -1955,7 +1955,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint MH1Point = new GeoPoint(14.6564462,121.0688224);
         MH1.setPosition(MH1Point);
         MH1.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        MH1.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        MH1.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(MH1);
         MH1.setInfoWindow(MH1Window);
         //Parking Lot
@@ -1963,7 +1963,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint MH2Point = new GeoPoint(14.6565792,121.0695234);
         MH2.setPosition(MH2Point);
         MH2.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        MH2.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        MH2.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(MH2);
         MH2.setInfoWindow(MH2Window);
 
@@ -2051,7 +2051,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint CE1Point = new GeoPoint(14.6482010,121.067003);
         CE1.setPosition(CE1Point);
         CE1.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        CE1.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        CE1.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(CE1);
         CE1.setInfoWindow(CE1Window);
 
@@ -2107,7 +2107,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint Bio1Point = new GeoPoint(14.6508784,121.0710165);
         Bio1.setPosition(Bio1Point);
         Bio1.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        Bio1.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        Bio1.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(Bio1);
         Bio1.setInfoWindow(Bio1Window);
 
@@ -2131,7 +2131,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint Civil1Point = new GeoPoint(14.6485545,121.0663435);
         Civil1.setPosition(Civil1Point);
         Civil1.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        Civil1.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        Civil1.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(Civil1);
         Civil1.setInfoWindow(Civil1Window);
 
@@ -2243,7 +2243,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
         GeoPoint V1Point = new GeoPoint(14.6587647,121.0642231);
         V1.setPosition(V1Point);
         V1.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        V1.setIcon(getDrawable(R.drawable.ic_accessible_black_24dp));
+        V1.setIcon(getResources().getDrawable(R.drawable.ic_accessible_black_24dp));
         map.getOverlays().add(V1);
         V1.setInfoWindow(V1Window);
 
@@ -2297,7 +2297,7 @@ public class activityMap extends AppCompatActivity implements MapEventsReceiver{
     }
 
     private void goToEntrancePage(String bldg) {
-        Intent intent = new Intent(this, activityMoreInfo.class);
+        Intent intent = new Intent(this, activityEntrancePicture.class);
         intent.putExtra("EXTRA_SELECTED_DEST", bldg);
         startActivity(intent);
         overridePendingTransition(0, 0);
