@@ -155,16 +155,16 @@ public class activityMoreInfo extends AppCompatActivity {
                 finish();
             }
         });
-        /*
+
         Button pics = (Button) findViewById(R.id.pics);
         pics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String s = getIntent().getStringExtra("EXTRA_SELECTED_DEST");
-                goToImages();
+                String s = getIntent().getStringExtra("EXTRA_SELECTED_DEST");
+                goToImages(s);
             }
         });
-        */
+
     }
     private void goToFirstPage() {
         Intent intent2 = new Intent(this, activityMap.class);
@@ -172,13 +172,14 @@ public class activityMoreInfo extends AppCompatActivity {
         overridePendingTransition(0, 0);
         finish();
     }
-    /*
-    private void goToImages() {
-        String s = getIntent().getStringExtra("EXTRA_SELECTED_DEST");
+
+    private void goToImages(String s) {
+        //String s = getIntent().getStringExtra("EXTRA_SELECTED_DEST");
+        String b = s;
         Intent intent3 = new Intent(this, entrance.class);
-        intent3.putExtra("EXTRA_SELECTED_DEST", s);
+        intent3.putExtra("EXTRA_SELECTED_DEST", b);
         startActivity(intent3);
         overridePendingTransition(0, 0);
     }
-    */
+
 }

@@ -20,41 +20,41 @@ public class activityEntrancePicture extends AppCompatActivity {
         TextView text = (TextView) findViewById(R.id.textView5);
 
         switch (bldg) {
-            case "PH1":
+            case "PH1": //CAL-side
+                img1.setImageResource(R.drawable.calside);
+                text.setText("Entrance facing College of Arts and Letters (CAL)");
+                break;
+            case "PH2": //Pav1
                 img1.setImageResource(R.drawable.pav1e);
                 text.setText("Pavilion 1 Entrance");
                 break;
-            case "PH2":
-                img1.setImageResource(R.drawable.pav1e);
-                text.setText("Pavilion 1 Entrance");
-                break;
-            case "PH3":
-                img1.setImageResource(R.drawable.pav1e);
-                text.setText("Pavilion 1 Entrance");
+            case "PH3": //Pav4
+                img1.setImageResource(R.drawable.phwe);
+                text.setText("Pavilion 4 Entrance");
                 break;
             case "MH1":
-                img1.setImageResource(R.drawable.pav1e);
-                text.setText("Pavilion 1 Entrance");
+                //img1.setImageResource(R.drawable.pav1e);
+                text.setText("Left Wing Entrance");
                 break;
             case "MH2":
-                img1.setImageResource(R.drawable.pav1e);
-                text.setText("Pavilion 1 Entrance");
+                //img1.setImageResource(R.drawable.pav1e);
+                text.setText("Parking Lot Entrance");
                 break;
-            case "CE1": //ChemEngg
-                img1.setImageResource(R.drawable.pav1e);
-                text.setText("Pavilion 1 Entrance");
+            case "CE1": //ChemEngg back
+                //img1.setImageResource(R.drawable.pav1e);
+                text.setText("Back Entrance");
                 break;
             case "Bio1":
                 img1.setImageResource(R.drawable.pav1e);
-                text.setText("Pavilion 1 Entrance");
+                text.setText("Parking Lot Entrance");
                 break;
             case "Civil1":
-                img1.setImageResource(R.drawable.pav1e);
-                text.setText("Pavilion 1 Entrance");
+                //img1.setImageResource(R.drawable.pav1e);
+                text.setText("Back Entrance");
                 break;
             case "V1":
-                img1.setImageResource(R.drawable.pav1e);
-                text.setText("Pavilion 1 Entrance");
+                //img1.setImageResource(R.drawable.pav1e);
+                text.setText("Parking Lot Entrance");
                 break;
         }
 
