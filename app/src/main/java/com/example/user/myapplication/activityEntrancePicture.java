@@ -45,7 +45,7 @@ public class activityEntrancePicture extends AppCompatActivity {
                 text.setText("Back Entrance");
                 break;
             case "Bio1":
-                img1.setImageResource(R.drawable.pav1e);
+                //img1.setImageResource(R.drawable.pav1e);
                 text.setText("Parking Lot Entrance");
                 break;
             case "Civil1":

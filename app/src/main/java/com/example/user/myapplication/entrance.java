@@ -29,7 +29,7 @@ public class entrance extends AppCompatActivity {
                 //img2.setImageResource(R.drawable.phwe);
                 break;
             case "MH":
-                img1.setImageResource(R.drawable.pav1e);
+                //img1.setImageResource(R.drawable.pav1e);
                 //img2.setImageResource(R.drawable.phwe);
                 break;
             case "CHK":
@@ -41,8 +41,8 @@ public class entrance extends AppCompatActivity {
             case "CAL":
                 //img1.setImageResource(R.drawable.pav1e);
                 break;
-            case "Edu":
-                //img1.setImageResource(R.drawable.pav1e);
+            case "Edu": //CHANGE
+                img1.setImageResource(R.drawable.edu);
                 break;
             case "Law":
                 img1.setImageResource(R.drawable.law);
@@ -50,7 +50,7 @@ public class entrance extends AppCompatActivity {
             case "MC":
                 img1.setImageResource(R.drawable.masscomm);
                 break;
-            case "Music":
+            case "Music": //CHANGE
                 img1.setImageResource(R.drawable.music);
                 break;
             case "CSL":
@@ -63,18 +63,18 @@ public class entrance extends AppCompatActivity {
                 //img1.setImageResource(R.drawable.pav1e);
                 break;
             case "DCS":
-                //img1.setImageResource(R.drawable.pav1e);
+                img1.setImageResource(R.drawable.dcs);
                 break;
             case "Mine":
                 //img1.setImageResource(R.drawable.pav1e);
                 break;
             case "Psych":
-                //img1.setImageResource(R.drawable.pav1e);
+                img1.setImageResource(R.drawable.phan);
                 break;
             case "FA":
                 //img1.setImageResource(R.drawable.pav1e);
                 break;
-            case "HE":
+            case "HE": //CHANGE?
                 img1.setImageResource(R.drawable.he);
                 break;
             case "Bio":
@@ -92,17 +92,17 @@ public class entrance extends AppCompatActivity {
             case "Math":
                 //img1.setImageResource(R.drawable.pav1e);
                 break;
-            case "LawC":
+            case "LawC": //CHANGE
                 img1.setImageResource(R.drawable.lawc);
                 break;
-            case "Lib":
+            case "Lib": //CHANGE
                 img1.setImageResource(R.drawable.lib);
                 break;
             case "NCPAG":
-                //img1.setImageResource(R.drawable.pav1e);
+                img1.setImageResource(R.drawable.ncpag);
                 break;
             case "Geol":
-                //img1.setImageResource(R.drawable.pav1e);
+                img1.setImageResource(R.drawable.geol);
                 break;
             case "NIMBB":
                 img1.setImageResource(R.drawable.nimbb);
@@ -110,19 +110,19 @@ public class entrance extends AppCompatActivity {
             case "NIP":
                 //img1.setImageResource(R.drawable.pav1e);
                 break;
-            case "Econ":
+            case "Econ": //CHANGE
                 img1.setImageResource(R.drawable.econ1);
                 break;
             case "Stat":
                 //img1.setImageResource(R.drawable.pav1e);
                 break;
             case "SURP":
-                //img1.setImageResource(R.drawable.pav1e);
+                img1.setImageResource(R.drawable.surp);
                 break;
             case "V":
-                //img1.setImageResource(R.drawable.pav1e);
+                img1.setImageResource(R.drawable.vanguard);
                 break;
-            case "BA":
+            case "BA": //CHANGE
                 img1.setImageResource(R.drawable.ba);
                 break;
         }
