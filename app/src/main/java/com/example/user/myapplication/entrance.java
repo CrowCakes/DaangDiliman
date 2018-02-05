@@ -33,7 +33,7 @@ public class entrance extends AppCompatActivity {
                 //img2.setImageResource(R.drawable.phwe);
                 break;
             case "CHK":
-                img1.setImageResource(R.drawable.chk);
+                img1.setImageResource(R.drawable.gym);
                 break;
             case "Arki":
                 //img1.setImageResource(R.drawable.pav1e);
